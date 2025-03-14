@@ -44,3 +44,47 @@ body {
     scroll-snap-align: start;
   }
 }
+@keyframes curve-offset {
+  from {
+    stroke-dashoffset: 25.12;
+  }
+  46% {
+    stroke-dashoffset: 0;
+  }
+  92%,
+  to {
+    stroke-dashoffset: -24.97;
+  }
+}
+
+@keyframes dot-move {
+  from,
+  25% {
+    stroke-dashoffset: 0;
+  }
+  50%,
+  to {
+    stroke-dashoffset: -15.99;
+  }
+}
+
+@keyframes scene-move {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-16px, 0);
+  }
+}
+
+.animate-curve-offset {
+  animation: curve-offset 1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-dot-move {
+  animation: dot-move 1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-scene-move {
+  animation: scene-move 1s linear infinite;
+}
