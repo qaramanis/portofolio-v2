@@ -1,24 +1,37 @@
 "use client";
-
+import { useEffect, useRef, useState, ReactNode } from "react";
 import AnimatedMenu from "@/components/animated-menu/animated-menu";
 import Timeline from "@/components/timeline/timeline";
-import { useEffect, useRef, useState } from "react";
+import Hero from "./hero/hero";
+
+type Section = {
+  id: string;
+  component: ReactNode;
+  allowInternalScroll?: boolean;
+};
 
 export default function Home() {
-  const menuSectionRef = useRef<HTMLDivElement>(null);
-  const timelineSectionRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const sections: Section[] = [
+    { id: "menu-section", component: <AnimatedMenu /> },
+    { id: "hero-section", component: <Hero /> },
+  ];
 
-  const [currentSection, setCurrentSection] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>(
+    Array(sections.length).fill(null)
+  );
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      const timelineElement = timelineSectionRef.current;
-      if (currentSection === 1 && timelineElement) {
-        const isAtTop = timelineElement.scrollTop <= 0;
+      const currentSection = sectionRefs.current[currentSectionIndex];
+      const currentSectionConfig = sections[currentSectionIndex];
+
+      if (currentSectionConfig.allowInternalScroll && currentSection) {
+        const isAtTop = currentSection.scrollTop <= 0;
         const isAtBottom =
-          timelineElement.scrollHeight - timelineElement.scrollTop <=
-          timelineElement.clientHeight + 1;
+          currentSection.scrollHeight - currentSection.scrollTop <=
+          currentSection.clientHeight + 1;
 
         if ((e.deltaY > 0 && !isAtBottom) || (e.deltaY < 0 && !isAtTop)) {
           return;
@@ -26,15 +39,18 @@ export default function Home() {
       }
 
       e.preventDefault();
-
       const scrollDown = e.deltaY > 0;
 
-      if (scrollDown && currentSection === 0) {
-        timelineSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-        setCurrentSection(1);
-      } else if (!scrollDown && currentSection === 1) {
-        menuSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-        setCurrentSection(0);
+      if (scrollDown && currentSectionIndex < sections.length - 1) {
+        sectionRefs.current[currentSectionIndex + 1]?.scrollIntoView({
+          behavior: "smooth",
+        });
+        setCurrentSectionIndex(currentSectionIndex + 1);
+      } else if (!scrollDown && currentSectionIndex > 0) {
+        sectionRefs.current[currentSectionIndex - 1]?.scrollIntoView({
+          behavior: "smooth",
+        });
+        setCurrentSectionIndex(currentSectionIndex - 1);
       }
     };
 
@@ -42,10 +58,11 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (entry.target === menuSectionRef.current) {
-              setCurrentSection(0);
-            } else if (entry.target === timelineSectionRef.current) {
-              setCurrentSection(1);
+            const index = sectionRefs.current.findIndex(
+              (ref) => ref === entry.target
+            );
+            if (index !== -1) {
+              setCurrentSectionIndex(index);
             }
           }
         });
@@ -53,9 +70,9 @@ export default function Home() {
       { threshold: 0.5 }
     );
 
-    if (menuSectionRef.current) observer.observe(menuSectionRef.current);
-    if (timelineSectionRef.current)
-      observer.observe(timelineSectionRef.current);
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
 
     const container = containerRef.current;
     if (container) {
@@ -68,28 +85,46 @@ export default function Home() {
       }
       observer.disconnect();
     };
-  }, [currentSection]);
+  }, [currentSectionIndex, sections.length]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
+        sectionRefs.current[currentSectionIndex + 1]?.scrollIntoView({
+          behavior: "smooth",
+        });
+        setCurrentSectionIndex(currentSectionIndex + 1);
+      } else if (e.key === "ArrowUp" && currentSectionIndex > 0) {
+        sectionRefs.current[currentSectionIndex - 1]?.scrollIntoView({
+          behavior: "smooth",
+        });
+        setCurrentSectionIndex(currentSectionIndex - 1);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentSectionIndex, sections.length]);
 
   return (
     <main
       ref={containerRef}
       className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
     >
-      <section
-        ref={menuSectionRef}
-        className="h-screen w-full flex items-center justify-center snap-start"
-        id="menu-section"
-      >
-        <AnimatedMenu />
-      </section>
-
-      <section
-        ref={timelineSectionRef}
-        className="h-screen w-full flex items-center justify-center snap-start overflow-y-auto"
-        id="timeline-section"
-      >
-        <Timeline />
-      </section>
+      {sections.map((section, index) => (
+        <section
+          key={section.id}
+          ref={(el) => {
+            sectionRefs.current[index] = el as HTMLDivElement;
+          }}
+          className={`h-screen w-full flex items-center justify-center snap-start ${
+            section.allowInternalScroll ? "overflow-y-auto" : ""
+          }`}
+          id={section.id}
+        >
+          {section.component}
+        </section>
+      ))}
     </main>
   );
 }
