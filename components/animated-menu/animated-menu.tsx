@@ -7,11 +7,11 @@ const AnimatedMenu: React.FC = () => {
   const menuItems = ["Home", "Blog", "Experience", "Contact Me"];
 
   return (
-    <div className="bg-[#141414] m-0 h-screen w-screen">
-      <div id="menu" className="flex items-center h-screen w-screen">
+    <div className="bg-[#141414] m-0 h-full w-full relative overflow-hidden">
+      <div id="menu" className="flex items-center h-full w-full relative">
         <div
           id="menu-items"
-          className="ml-[clamp(4rem,20vw,48rem)] relative z-2"
+          className="ml-[clamp(4rem,20vw,48rem)] relative z-10"
           data-active-index={hoverIndex !== null ? hoverIndex : undefined}
         >
           {menuItems.map((item, index) => (

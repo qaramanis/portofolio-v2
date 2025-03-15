@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 import AnimatedMenu from "@/components/animated-menu/animated-menu";
 import Timeline from "@/components/timeline/timeline";
 import Hero from "./hero/hero";
+import CopyrightWatermark from "./copyright-watermark";
 
 type Section = {
   id: string;
@@ -125,6 +126,7 @@ export default function Home() {
           {section.component}
         </section>
       ))}
+      <CopyrightWatermark />
     </main>
   );
 }

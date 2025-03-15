@@ -4,6 +4,7 @@ import CatchMeIfYouCan from "@/components/loader/catch-me-if-you-can";
 import Home from "@/components/home";
 import PageLoader from "@/components/loader/page-loader";
 import { motion } from "framer-motion";
+import OsmoNavigation from "@/components/osmo-navigation";
 
 export default function Page() {
   return (
@@ -15,6 +16,7 @@ export default function Page() {
     >
       <PageLoader />
       <Home />
+      <OsmoNavigation />
     </motion.main>
   );
 }
