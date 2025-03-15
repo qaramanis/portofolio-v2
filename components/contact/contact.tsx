@@ -17,7 +17,7 @@ export default function Contact() {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-3">Get in touch</h1>
+        <h1 className="text-4xl font-bold text-white mb-3">Get in touch</h1>
         <h2 className="text-muted-foreground text-lg">
           Let&apos;s collaborate to create <br />
           the perfect online presence{" "}

@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState, ReactNode } from "react";
 import AnimatedMenu from "@/components/animated-menu/animated-menu";
 import Hero from "./hero/hero";
-import CopyrightWatermark from "./copyright-watermark";
 import Contact from "./contact/contact";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 
@@ -44,22 +43,6 @@ const sectionVariants: Variants = {
   }),
 };
 
-const childVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
 export default function Home() {
   const sections: Section[] = [
     { id: "hero-section", component: <Hero /> },
@@ -72,7 +55,7 @@ export default function Home() {
     Array(sections.length).fill(null)
   );
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [direction, setDirection] = useState(0); // 1 for scrolling down, -1 for scrolling up
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -142,45 +125,27 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Prevent default arrow key behavior (scrolling)
-      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-        e.preventDefault();
-
-        // Get the current index directly from the DOM
-        const visibleSectionIndex = Array.from(sectionRefs.current).findIndex(
-          (section) => {
-            if (!section) return false;
-            const rect = section.getBoundingClientRect();
-            return rect.top <= 100 && rect.bottom >= 100;
-          }
-        );
-
-        const currentIdx =
-          visibleSectionIndex !== -1
-            ? visibleSectionIndex
-            : currentSectionIndex;
-
-        if (e.key === "ArrowDown" && currentIdx < sections.length - 1) {
-          const nextIdx = currentIdx + 1;
-          setDirection(1);
-          sectionRefs.current[nextIdx]?.scrollIntoView({ behavior: "smooth" });
-          setCurrentSectionIndex(nextIdx);
-        } else if (e.key === "ArrowUp" && currentIdx > 0) {
-          const prevIdx = currentIdx - 1;
-          setDirection(-1);
-          sectionRefs.current[prevIdx]?.scrollIntoView({ behavior: "smooth" });
-          setCurrentSectionIndex(prevIdx);
-        }
+      if (e.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
+        sectionRefs.current[currentSectionIndex + 1]?.scrollIntoView({
+          behavior: "smooth",
+        });
+        setCurrentSectionIndex(currentSectionIndex + 1);
+      } else if (e.key === "ArrowUp" && currentSectionIndex > 0) {
+        sectionRefs.current[currentSectionIndex - 1]?.scrollIntoView({
+          behavior: "smooth",
+        });
+        setCurrentSectionIndex(currentSectionIndex - 1);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [sections.length]); // Remove currentSectionIndex from dependencies
+  }, [currentSectionIndex, sections]);
+
   return (
     <main
       ref={containerRef}
-      className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+      className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-black"
     >
       {sections.map((section, index) => (
         <section
@@ -190,7 +155,7 @@ export default function Home() {
           }}
           className={`h-screen w-full flex items-center justify-center snap-start ${
             section.allowInternalScroll ? "overflow-y-auto" : ""
-          }`}
+          } ${index > 0 ? "-mt-1" : ""}`}
           id={section.id}
         >
           <AnimatePresence mode="wait" custom={direction}>
@@ -204,14 +169,12 @@ export default function Home() {
                 animate="visible"
                 exit="exit"
               >
-                {/* Removed the extra wrapping div that was limiting height */}
                 {section.component}
               </motion.div>
             )}
           </AnimatePresence>
         </section>
       ))}
-      <CopyrightWatermark />
     </main>
   );
 }

@@ -64,7 +64,7 @@ const OsmoVerticalNavigation: React.FC = () => {
           >
             <a
               href={item.href}
-              className="z-10 pointer-events-auto flex justify-center items-center w-10 h-full px-1 py-1 relative text-gray-800 hover:text-blue-600 transition-colors duration-300"
+              className="z-10 pointer-events-auto flex justify-center items-center w-10 h-full px-1 py-1 relative text-[#333] hover:text-white transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -73,7 +73,7 @@ const OsmoVerticalNavigation: React.FC = () => {
             <div
               className={`
                 absolute right-full mr-2 z-0 whitespace-nowrap rounded-lg
-                py-1 px-1 text-base font-normal text-blue-600
+                py-1 px-1 text-base font-normal text-white
                 transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
                 ${
                   hoverIndex === index

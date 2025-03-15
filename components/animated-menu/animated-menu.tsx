@@ -4,11 +4,11 @@ import React, { useState } from "react";
 
 const AnimatedMenu: React.FC = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const menuItems = ["Home", "Blog", "Experience", "Contact Me"];
+  const menuItems = ["Web Desisgn", "Project Management", "Data Analysis"];
 
   return (
     <div className="bg-[#141414] h-full w-full relative overflow-hidden">
-      <div id="menu" className="flex items-center h-full w-full relative ">
+      <div id="menu" className="flex items-center h-full w-full relative">
         <div
           id="menu-items"
           className="ml-[clamp(4rem,20vw,48rem)] relative z-10"
@@ -19,7 +19,7 @@ const AnimatedMenu: React.FC = () => {
               key={index}
               className={`
                 menu-item text-white/80 cursor-pointer block 
-                text-[clamp(3rem,8vw,8rem)] py-[clamp(0.25rem,0.5vw,1rem)] pr-0 pl-0 
+                text-[clamp(1rem,8vw,3rem)] py-[clamp(0.25rem,0.5vw,1rem)] pr-0 pl-0 
                 no-underline transition-all duration-400 ease-in-out
                 ${
                   hoverIndex !== null && hoverIndex !== index
