@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useRef, useState, ReactNode } from "react";
 import AnimatedMenu from "@/components/animated-menu/animated-menu";
-import Timeline from "@/components/timeline/timeline";
 import Hero from "./hero/hero";
 import CopyrightWatermark from "./copyright-watermark";
+import Contact from "./contact/contact";
 
 type Section = {
   id: string;
@@ -13,8 +13,9 @@ type Section = {
 
 export default function Home() {
   const sections: Section[] = [
-    { id: "menu-section", component: <AnimatedMenu /> },
     { id: "hero-section", component: <Hero /> },
+    { id: "menu-section", component: <AnimatedMenu /> },
+    { id: "contact-section", component: <Contact /> },
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);

@@ -72,13 +72,13 @@ const OsmoVerticalNavigation: React.FC = () => {
             </a>
             <div
               className={`
-                absolute right-full mr-2 z-0 whitespace-nowrap rounded-[0.25em] 
-                p-[0.4em_0.5em] text-base font-normal text-gray-800
+                absolute right-full mr-2 z-0 whitespace-nowrap rounded-lg
+                py-1 px-1 text-base font-normal text-blue-600
                 transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
                 ${
                   hoverIndex === index
                     ? "opacity-100 transform translate-x-[-10%]"
-                    : "opacity-0 transform translate-x-[30%]"
+                    : "opacity-0 transform translate-x-[10%]"
                 }
               `}
             >
