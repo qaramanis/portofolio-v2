@@ -87,7 +87,7 @@ export default function Home() {
       }
       observer.disconnect();
     };
-  }, [currentSectionIndex, sections.length]);
+  }, [currentSectionIndex, sections]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

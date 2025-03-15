@@ -11,7 +11,7 @@ export default function Contact() {
     // Here you can implement your form submission logic
     console.log("Form submitted:", values);
 
-    alert("Thank you for your message! We'll get back to you soon.");
+    alert("Thank you for your message! I will get back to you soon.");
   };
 
   return (
@@ -19,7 +19,7 @@ export default function Contact() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-3">Get in touch</h1>
         <h2 className="text-muted-foreground text-lg">
-          Let's collaborate to create the perfect online presence{" "}
+          Let&apos;s collaborate to create the perfect online presence{" "}
           <span className="bg-gradient-to-r from-red-600 via-blue-500 to-red-600 text-transparent bg-clip-text whitespace-nowrap gradient-text-animated">
             tailored to your needs
           </span>{" "}

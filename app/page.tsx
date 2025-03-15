@@ -1,6 +1,5 @@
 "use client";
 
-import CatchMeIfYouCan from "@/components/loader/catch-me-if-you-can";
 import Home from "@/components/home";
 import PageLoader from "@/components/loader/page-loader";
 import { motion } from "framer-motion";
