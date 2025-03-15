@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Squares from "@/components/squares-background";
+import NavigationHint from "./navigation-hint";
 
 export default function Hero() {
   return (
@@ -23,6 +24,8 @@ export default function Hero() {
           Digital Anthology
         </motion.h2>
       </div>
+
+      <NavigationHint />
 
       <Squares
         speed={0.5}
