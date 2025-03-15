@@ -55,7 +55,7 @@ export default function Home() {
     Array(sections.length).fill(null)
   );
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 for scrolling down, -1 for scrolling up
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -126,11 +126,13 @@ export default function Home() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
+        e.preventDefault();
         sectionRefs.current[currentSectionIndex + 1]?.scrollIntoView({
           behavior: "smooth",
         });
         setCurrentSectionIndex(currentSectionIndex + 1);
       } else if (e.key === "ArrowUp" && currentSectionIndex > 0) {
+        e.preventDefault();
         sectionRefs.current[currentSectionIndex - 1]?.scrollIntoView({
           behavior: "smooth",
         });
@@ -140,7 +142,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentSectionIndex, sections]);
+  }, [currentSectionIndex, sections.length]);
 
   return (
     <main

@@ -4,7 +4,13 @@ import React, { useState } from "react";
 
 const AnimatedMenu: React.FC = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const menuItems = ["Web Desisgn", "Project Management", "Data Analysis"];
+  const menuItems = [
+    "Web Design",
+    "Project Management",
+    "Data Analysis",
+    "Android Applications",
+    "API Development",
+  ];
 
   return (
     <div className="bg-[#141414] h-full w-full relative overflow-hidden">
@@ -46,7 +52,9 @@ const AnimatedMenu: React.FC = () => {
             ${hoverIndex === 1 ? "bg-[position:center_60%]" : ""}
             ${hoverIndex === 2 ? "bg-[position:center_65%]" : ""}
             ${hoverIndex === 3 ? "bg-[position:center_70%]" : ""}
-            ${hoverIndex !== null ? "" : "bg-[position:center_50%]"}
+            ${hoverIndex === 4 ? "bg-[position:center_75%]" : ""}
+            ${hoverIndex === 5 ? "bg-[position:center_80%]" : ""}
+            ${hoverIndex !== null ? "" : "bg-[position:center_60%]"}
             ${
               hoverIndex !== null
                 ? "bg-[size:100vmax] opacity-15"

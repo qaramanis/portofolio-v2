@@ -72,7 +72,7 @@ export default function ContactForm({
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
           <div className="uppercase text-sm font-medium mb-1">
-            Tell us your name <span className="text-primary">*</span>
+            Full Name<span className="text-primary">*</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
