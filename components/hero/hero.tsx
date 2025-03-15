@@ -4,7 +4,7 @@ import Squares from "@/components/squares-background";
 export default function Hero() {
   return (
     <div className="w-full h-full bg-black relative flex items-center justify-center overflow-hidden">
-      <div className="relative z-10 text-center">
+      <div className="relative z-10  text-left p-8">
         <motion.h1
           className="text-7xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
@@ -23,6 +23,7 @@ export default function Hero() {
           Digital Anthology
         </motion.h2>
       </div>
+
       <Squares
         speed={0.5}
         squareSize={30}

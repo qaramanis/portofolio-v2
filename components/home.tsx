@@ -44,7 +44,6 @@ const sectionVariants: Variants = {
   }),
 };
 
-// Animation variants for children elements
 const childVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -73,7 +72,7 @@ export default function Home() {
     Array(sections.length).fill(null)
   );
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 for scrolling down, -1 for scrolling up
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -143,23 +142,41 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
-        sectionRefs.current[currentSectionIndex + 1]?.scrollIntoView({
-          behavior: "smooth",
-        });
-        setCurrentSectionIndex(currentSectionIndex + 1);
-      } else if (e.key === "ArrowUp" && currentSectionIndex > 0) {
-        sectionRefs.current[currentSectionIndex - 1]?.scrollIntoView({
-          behavior: "smooth",
-        });
-        setCurrentSectionIndex(currentSectionIndex - 1);
+      // Prevent default arrow key behavior (scrolling)
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+
+        // Get the current index directly from the DOM
+        const visibleSectionIndex = Array.from(sectionRefs.current).findIndex(
+          (section) => {
+            if (!section) return false;
+            const rect = section.getBoundingClientRect();
+            return rect.top <= 100 && rect.bottom >= 100;
+          }
+        );
+
+        const currentIdx =
+          visibleSectionIndex !== -1
+            ? visibleSectionIndex
+            : currentSectionIndex;
+
+        if (e.key === "ArrowDown" && currentIdx < sections.length - 1) {
+          const nextIdx = currentIdx + 1;
+          setDirection(1);
+          sectionRefs.current[nextIdx]?.scrollIntoView({ behavior: "smooth" });
+          setCurrentSectionIndex(nextIdx);
+        } else if (e.key === "ArrowUp" && currentIdx > 0) {
+          const prevIdx = currentIdx - 1;
+          setDirection(-1);
+          sectionRefs.current[prevIdx]?.scrollIntoView({ behavior: "smooth" });
+          setCurrentSectionIndex(prevIdx);
+        }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentSectionIndex, sections.length]);
-
+  }, [sections.length]); // Remove currentSectionIndex from dependencies
   return (
     <main
       ref={containerRef}

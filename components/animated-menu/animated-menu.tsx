@@ -7,8 +7,8 @@ const AnimatedMenu: React.FC = () => {
   const menuItems = ["Home", "Blog", "Experience", "Contact Me"];
 
   return (
-    <div className="bg-[#141414] m-0 h-full w-full relative overflow-hidden">
-      <div id="menu" className="flex items-center h-full w-full relative">
+    <div className="bg-[#141414] h-full w-full relative overflow-hidden">
+      <div id="menu" className="flex items-center h-full w-full relative ">
         <div
           id="menu-items"
           className="ml-[clamp(4rem,20vw,48rem)] relative z-10"
@@ -39,7 +39,7 @@ const AnimatedMenu: React.FC = () => {
         <div
           id="menu-background-image"
           className={`
-            bg-[url('https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
+            bg-[url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2647&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
             h-full w-full left-0 top-0 absolute
             transition-[opacity,background-size,background-position] duration-800 ease-in-out z-0
             ${hoverIndex === 0 ? "bg-[position:center_55%]" : ""}
@@ -49,8 +49,8 @@ const AnimatedMenu: React.FC = () => {
             ${hoverIndex !== null ? "" : "bg-[position:center_50%]"}
             ${
               hoverIndex !== null
-                ? "bg-[size:100vmax] opacity-10"
-                : "bg-[size:110vmax] opacity-15"
+                ? "bg-[size:100vmax] opacity-15"
+                : "bg-[size:110vmax] opacity-25"
             }
           `}
         ></div>
