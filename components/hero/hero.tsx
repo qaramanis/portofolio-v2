@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Squares from "@/components/squares-background";
 import NavigationHint from "./navigation-hint";
+import OsmoNavigation from "../osmo-navigation";
 
 export default function Hero() {
   return (
@@ -26,6 +27,7 @@ export default function Hero() {
       </div>
 
       <NavigationHint />
+      <OsmoNavigation />
 
       <Squares
         speed={0.5}

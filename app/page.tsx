@@ -16,7 +16,6 @@ export default function Page() {
     >
       <PageLoader />
       <Home />
-      <OsmoNavigation />
       <CopyrightWatermark />
     </motion.main>
   );
