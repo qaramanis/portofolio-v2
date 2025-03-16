@@ -3,7 +3,6 @@
 import Home from "@/components/home";
 import PageLoader from "@/components/loader/page-loader";
 import { motion } from "framer-motion";
-import OsmoNavigation from "@/components/osmo-navigation";
 import CopyrightWatermark from "@/components/copyright-watermark";
 
 export default function Page() {
