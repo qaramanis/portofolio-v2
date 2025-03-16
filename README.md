@@ -44,7 +44,7 @@ A modern, animated portfolio website built with Next.js, Framer Motion, and Tail
 
 ## Deployment
 
-This project is deployed on [Vercel]([https://vercel.com/qaramanis-projects/portofolio-v2](https://portofolio-v2-tau.vercel.app/))
+This project is deployed on [Vercel]([https://portofolio-v2-tau.vercel.app/])
 
 Be sure to check it out
 
