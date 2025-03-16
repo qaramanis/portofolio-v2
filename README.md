@@ -44,7 +44,8 @@ A modern, animated portfolio website built with Next.js, Framer Motion, and Tail
 
 ## Deployment
 
-This project is deployed on [Vercel]([https://portofolio-v2-tau.vercel.app/])
+This project is deployed on [Vercel]([https://vercel.com/](https://portofolio-v2-tau.vercel.app/))
+
 
 Be sure to check it out
 
@@ -57,3 +58,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Apostolos Karamanis - [apostkaram@gmail.com](mailto:apostkaram@gmail.com)
 
 Project Link: [https://github.com/qaramanis/digital-anthology](https://github.com/qaramanis/digital-anthology)
+
+----
