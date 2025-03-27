@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, ReactNode } from "react";
 import Hero from "./hero/hero";
-import Contact from "./contact/contact";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import ServicesMenu from "./services/services";
 
