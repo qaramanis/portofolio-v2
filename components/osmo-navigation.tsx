@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Linkedin, Github, Mail } from "lucide-react";
+import { Linkedin, Github, Mail, Twitter } from "lucide-react";
 
 interface NavItem {
   id: number;
@@ -27,6 +27,12 @@ const OsmoVerticalNavigation: React.FC = () => {
       label: "Mail",
       href: "mailto:apostkaram@gmail.com",
       icon: <Mail size={32} />,
+    },
+    {
+      id: 4,
+      label: "X.com",
+      href: "https://x.com/qaramanis",
+      icon: <Twitter size={32} />,
     },
   ];
 

@@ -13,8 +13,8 @@ export default function NavigationHint() {
       transition={{ duration: 0.8, delay: 0.4 }}
     >
       <div className="flex items-center gap-2">
-        <ArrowUpCircle size={32} />
-        <ArrowDownCircle size={32} />
+        <ArrowUpCircle size={28} />
+        <ArrowDownCircle size={28} />
       </div>
       <p className="text-lg font-mono">use arrow keys to navigate</p>
     </motion.div>

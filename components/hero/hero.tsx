@@ -33,7 +33,7 @@ export default function Hero() {
         speed={0.5}
         squareSize={30}
         direction="diagonal"
-        borderColor="#333"
+        borderColor="#777"
         hoverFillColor="#222" //leave blank to disable hover
       />
     </div>
