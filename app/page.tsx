@@ -1,9 +1,10 @@
 "use client";
 
-import Home from "@/components/home";
 import PageLoader from "@/components/loader/page-loader";
 import { motion } from "framer-motion";
+import OsmoNavigation from "@/components/hero/osmo-navigation";
 import CopyrightWatermark from "@/components/copyright-watermark";
+import Home from "@/components/home";
 
 export default function Page() {
   return (

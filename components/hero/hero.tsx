@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import Squares from "@/components/squares-background";
+import OsmoVerticalNavigation from "./osmo-navigation";
 import NavigationHint from "./navigation-hint";
-import OsmoNavigation from "../osmo-navigation";
 
 export default function Hero() {
   return (
-    <div className="w-full h-full bg-black relative flex items-center justify-center overflow-hidden">
-      <div className="relative z-10  text-left p-8">
+    <div className="w-full h-full relative flex items-center overflow-hidden">
+      <div className="relative z-10 text-left p-8 ml-8">
         <motion.h1
-          className="text-7xl font-bold text-white mb-6"
+          className="text-5xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0, duration: 0.8 }}
@@ -25,17 +25,19 @@ export default function Hero() {
           Digital Anthology
         </motion.h2>
       </div>
+      <div className="absolute inset-0 z-0">
+        <Squares
+          speed={0.4}
+          squareSize={30}
+          direction="diagonal"
+          borderColor="#034C53"
+          hoverFillColor="#222"
+        />
+      </div>
 
+      <div className="absolute left-0 top-0 bottom-0 w-1/2 z-0 bg-gradient-to-r from-black to-transparent pointer-events-none" />
+      <OsmoVerticalNavigation />
       <NavigationHint />
-      <OsmoNavigation />
-
-      <Squares
-        speed={0.5}
-        squareSize={30}
-        direction="diagonal"
-        borderColor="#777"
-        hoverFillColor="#222" //leave blank to disable hover
-      />
     </div>
   );
 }

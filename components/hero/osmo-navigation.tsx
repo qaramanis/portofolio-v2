@@ -45,7 +45,7 @@ const OsmoVerticalNavigation: React.FC = () => {
 
     if (distance === 0) return "hover";
     if (distance === 1) return "sibling-close";
-    if (distance === 2) return "sibling-far";
+    if (distance >= 2) return "sibling-far";
 
     return "";
   };

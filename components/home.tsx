@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useRef, useState, ReactNode } from "react";
-import AnimatedMenu from "@/components/animated-menu/animated-menu";
 import Hero from "./hero/hero";
 import Contact from "./contact/contact";
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import ServicesMenu from "./services/services";
 
 type Section = {
   id: string;
@@ -46,8 +46,8 @@ const sectionVariants: Variants = {
 export default function Home() {
   const sections: Section[] = [
     { id: "hero-section", component: <Hero /> },
-    { id: "menu-section", component: <AnimatedMenu /> },
-    { id: "contact-section", component: <Contact /> },
+    { id: "menu-section", component: <ServicesMenu /> },
+    // { id: "contact-section", component: <Contact /> },
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);

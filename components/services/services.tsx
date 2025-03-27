@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-const AnimatedMenu: React.FC = () => {
+const ServicesMenu: React.FC = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const menuItems = [
     "Web Design",
@@ -67,4 +67,4 @@ const AnimatedMenu: React.FC = () => {
   );
 };
 
-export default AnimatedMenu;
+export default ServicesMenu;
