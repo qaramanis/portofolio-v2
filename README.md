@@ -31,7 +31,7 @@ A modern, animated portfolio website built with Next.js, Framer Motion, and Tail
 │   ├── layout.tsx        # Root layout component
 │   └── page.tsx          # Home page component
 ├── components/           # React components
-│   ├── animated-menu/    # Interactive menu components
+│   ├── services-menu/    # Interactive menu components
 │   ├── contact/          # Contact form components
 │   ├── hero/             # Hero section components
 │   ├── loader/           # Loading animation components
