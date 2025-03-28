@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
 
 interface ThreadsProps {
   color?: [number, number, number];
@@ -139,6 +138,9 @@ const Threads: React.FC<ThreadsProps> = ({
     if (!containerRef.current) return;
     const container = containerRef.current;
 
+    // This function will contain our cleanup logic
+    let cleanupFunction: (() => void) | undefined;
+
     const setupCanvas = async () => {
       try {
         const { Renderer, Program, Mesh, Triangle, Color } = await import(
@@ -184,17 +186,20 @@ const Threads: React.FC<ThreadsProps> = ({
         window.addEventListener("resize", resize);
         resize();
 
-        let currentMouse = [0.5, 0.5];
-        let targetMouse = [0.5, 0.5];
+        // eslint-disable-next-line prefer-const
+        let currentMouse = [0.5, 0.5]; // Using let because we modify array elements
+        const targetMouse = [0.5, 0.5];
 
         function handleMouseMove(e: MouseEvent) {
           const rect = container.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width;
           const y = 1.0 - (e.clientY - rect.top) / rect.height;
-          targetMouse = [x, y];
+          targetMouse[0] = x;
+          targetMouse[1] = y;
         }
         function handleMouseLeave() {
-          targetMouse = [0.5, 0.5];
+          targetMouse[0] = 0.5;
+          targetMouse[1] = 0.5;
         }
         if (enableMouseInteraction) {
           container.addEventListener("mousemove", handleMouseMove);
@@ -219,16 +224,20 @@ const Threads: React.FC<ThreadsProps> = ({
         }
         animationFrameId.current = requestAnimationFrame(update);
 
-        return () => {
-          if (animationFrameId.current)
+        // Define the cleanup function
+        cleanupFunction = () => {
+          if (animationFrameId.current) {
             cancelAnimationFrame(animationFrameId.current);
+          }
           window.removeEventListener("resize", resize);
 
           if (enableMouseInteraction) {
             container.removeEventListener("mousemove", handleMouseMove);
             container.removeEventListener("mouseleave", handleMouseLeave);
           }
-          if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
+          if (container.contains(gl.canvas)) {
+            container.removeChild(gl.canvas);
+          }
           gl.getExtension("WEBGL_lose_context")?.loseContext();
         };
       } catch (error) {
@@ -236,10 +245,14 @@ const Threads: React.FC<ThreadsProps> = ({
       }
     };
 
-    const cleanup = setupCanvas();
+    // Run setup
+    setupCanvas();
 
+    // Return the cleanup function
     return () => {
-      cleanup && cleanup.then((cleanupFn) => cleanupFn && cleanupFn());
+      if (cleanupFunction) {
+        cleanupFunction();
+      }
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }

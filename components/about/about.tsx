@@ -2,7 +2,6 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Threads from "../threads";
 import AboutNav from "./about-nav";
 
 export default function About() {
@@ -14,7 +13,7 @@ export default function About() {
       ref={ref}
       className="w-full h-full relative flex flex-col items-center overflow-hidden"
     >
-      <motion.div
+      {/* <motion.div
         className="absolute inset-0 z-0"
         initial={{ x: "100%", opacity: 0 }}
         whileInView={{ x: 0, opacity: 0.75 }}
@@ -27,17 +26,17 @@ export default function About() {
           duration: 0.8,
         }}
       >
-        <div className="absolute inset-0 z-0">
-          <Threads
-            color={[3, 76, 83]}
-            amplitude={0.5}
-            distance={0.1}
-            enableMouseInteraction={false}
-          />
-        </div>
-      </motion.div>
+      <div className="absolute inset-0 z-0">
+        <Threads
+          color={[3, 76, 83]}
+          amplitude={0.4}
+          distance={0.1}
+          enableMouseInteraction={false}
+        />
+      </div>
+      </motion.div> */}
       <motion.div
-        className="w-full max-w-4xl text-center z-10 pt-20 px-8"
+        className="w-full max-w-4xl text-center z-10 pt-16 px-8"
         initial={{ opacity: 0, y: -20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.8 }}
@@ -52,7 +51,7 @@ export default function About() {
         </motion.h1>
 
         <motion.p
-          className="text-xl text-white/80"
+          className="text-xl text-white/80 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -60,11 +59,9 @@ export default function About() {
           A Computer Science student trying to elevate his knowledge and skills,
           in order to adapt and conquer the tech trends
         </motion.p>
-      </motion.div>
 
-      <div className="bg-transparent py-8">
         <AboutNav />
-      </div>
+      </motion.div>
     </div>
   );
 }

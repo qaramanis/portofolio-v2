@@ -14,6 +14,7 @@ export interface GooeyNavProps {
   timeVariance?: number;
   colors?: number[];
   initialActiveIndex?: number;
+  onNavItemClick?: (index: number) => void;
 }
 
 const GooeyNav: React.FC<GooeyNavProps> = ({
@@ -25,6 +26,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   timeVariance = 300,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
   initialActiveIndex = 0,
+  onNavItemClick,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLUListElement>(null);
@@ -47,7 +49,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     d: [number, number],
     r: number
   ) => {
-    let rotate = noise(r / 10);
+    const rotate = noise(r / 10);
     return {
       start: getXY(d[0], particleCount - i, particleCount),
       end: getXY(d[1] + noise(7), particleCount - i, particleCount),
@@ -122,6 +124,10 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     }
     if (filterRef.current) {
       makeParticles(filterRef.current);
+    }
+    // Call the callback if provided
+    if (onNavItemClick) {
+      onNavItemClick(index);
     }
   };
   const handleKeyDown = (
@@ -324,6 +330,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
               >
                 <a
                   href={item.href}
+                  onClick={(e) => e.preventDefault()}
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   className="outline-none"
                 >
