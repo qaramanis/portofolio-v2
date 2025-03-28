@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Squares from "@/components/squares-background";
-import OsmoVerticalNavigation from "./osmo-navigation";
-import NavigationHint from "./navigation-hint";
+import OsmoVerticalNavigation from "../osmo-navigation";
+import NavigationHint from "../navigation-hint";
 
 export default function Hero() {
   return (

@@ -4,6 +4,8 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import AboutNav from "./about-nav";
 
+import SplashCursor from "../cursor/splash-cursor";
+
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -13,28 +15,22 @@ export default function About() {
       ref={ref}
       className="w-full h-full relative flex flex-col items-center overflow-hidden"
     >
-      {/* <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ x: "100%", opacity: 0 }}
-        whileInView={{ x: 0, opacity: 0.75 }}
-        viewport={{ once: false }}
-        transition={{
-          type: "spring",
-          stiffness: 50,
-          damping: 30,
-          delay: 0.75,
-          duration: 0.8,
-        }}
-      >
-      <div className="absolute inset-0 z-0">
-        <Threads
-          color={[3, 76, 83]}
-          amplitude={0.4}
-          distance={0.1}
-          enableMouseInteraction={false}
-        />
-      </div>
-      </motion.div> */}
+      <SplashCursor
+        SIM_RESOLUTION={512}
+        DYE_RESOLUTION={1024}
+        DENSITY_DISSIPATION={5}
+        VELOCITY_DISSIPATION={3}
+        PRESSURE={0.1}
+        PRESSURE_ITERATIONS={20}
+        CURL={1.5}
+        SPLAT_RADIUS={0.1}
+        SPLAT_FORCE={50}
+        SHADING={true}
+        COLOR_UPDATE_SPEED={2}
+        BACK_COLOR={{ r: 0.05, g: 0.05, b: 0.05 }}
+        TRANSPARENT={true}
+      />
+
       <motion.div
         className="w-full max-w-4xl text-center z-10 pt-16 px-8"
         initial={{ opacity: 0, y: -20 }}
@@ -64,4 +60,29 @@ export default function About() {
       </motion.div>
     </div>
   );
+}
+
+{
+  /* <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ x: "100%", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 0.75 }}
+        viewport={{ once: false }}
+        transition={{
+          type: "spring",
+          stiffness: 50,
+          damping: 30,
+          delay: 0.75,
+          duration: 0.8,
+        }}
+      >
+      <div className="absolute inset-0 z-0">
+        <Threads
+          color={[3, 76, 83]}
+          amplitude={0.4}
+          distance={0.1}
+          enableMouseInteraction={false}
+        />
+      </div>
+      </motion.div> */
 }

@@ -52,7 +52,7 @@ const OsmoVerticalNavigation: React.FC = () => {
 
   return (
     <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 pointer-events-none">
-      <ul className="flex flex-col justify-center items-end gap-0 m-0 p-0 text-[1.4vw]">
+      <ul className="flex flex-col justify-center items-end gap-0 m-0 p-0 md:text-2xl text-lg">
         {navItems.map((item, index) => (
           <li
             key={item.id}
@@ -70,7 +70,7 @@ const OsmoVerticalNavigation: React.FC = () => {
           >
             <a
               href={item.href}
-              className="z-10 pointer-events-auto flex justify-center items-center w-10 h-full px-1 py-1 relative text-[#333] hover:text-white transition-colors duration-300"
+              className="z-10 pointer-events-auto flex justify-center items-center w-10 h-full px-1 py-1 relative text-[#333] hover:scale-110 hover:text-white transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
             >
