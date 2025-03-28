@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Threads from "../threads";
+import AboutNav from "./about-nav";
 
 export default function About() {
   const ref = useRef(null);
@@ -13,6 +14,28 @@ export default function About() {
       ref={ref}
       className="w-full h-full relative flex flex-col items-center overflow-hidden"
     >
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ x: "100%", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 0.75 }}
+        viewport={{ once: false }}
+        transition={{
+          type: "spring",
+          stiffness: 50,
+          damping: 30,
+          delay: 0.75,
+          duration: 0.8,
+        }}
+      >
+        <div className="absolute inset-0 z-0">
+          <Threads
+            color={[3, 76, 83]}
+            amplitude={0.5}
+            distance={0.1}
+            enableMouseInteraction={false}
+          />
+        </div>
+      </motion.div>
       <motion.div
         className="w-full max-w-4xl text-center z-10 pt-20 px-8"
         initial={{ opacity: 0, y: -20 }}
@@ -39,37 +62,9 @@ export default function About() {
         </motion.p>
       </motion.div>
 
-      <div className="flex-1 w-full z-10 px-8">
-        {/* You can add additional content here if needed */}
+      <div className="bg-transparent py-8">
+        <AboutNav />
       </div>
-
-      {/* <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ x: "100%", opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: false }}
-        transition={{
-          type: "spring",
-          stiffness: 50,
-          damping: 30,
-          delay: 0.75,
-          duration: 0.8,
-        }}
-      >
-        <Threads
-          color={[3, 76, 83]}
-          amplitude={0.3}
-          distance={0.1}
-          enableMouseInteraction={false}
-        />
-      </motion.div> */}
-
-      <Threads
-        color={[3, 76, 83]}
-        amplitude={0.3}
-        distance={0.2}
-        enableMouseInteraction={false}
-      />
     </div>
   );
 }

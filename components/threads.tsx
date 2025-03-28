@@ -133,17 +133,14 @@ const Threads: React.FC<ThreadsProps> = ({
   ...rest
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  // Fix: Initialize useRef with null for the animation frame ID
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
 
-    // Add dynamic import for OGL library since it's client-side only
     const setupCanvas = async () => {
       try {
-        // We need to dynamically import OGL since it's client-side only
         const { Renderer, Program, Mesh, Triangle, Color } = await import(
           "ogl"
         );
