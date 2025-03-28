@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 import Hero from "./hero/hero";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import ServicesMenu from "./services/services";
-import About from "./about";
+import About from "./about/about";
 
 type Section = {
   id: string;
