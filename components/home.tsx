@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, ReactNode } from "react";
 import Hero from "./hero/hero";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import ServicesMenu from "./services/services";
+import About from "./about";
 
 type Section = {
   id: string;
@@ -45,6 +46,7 @@ const sectionVariants: Variants = {
 export default function Home() {
   const sections: Section[] = [
     { id: "hero-section", component: <Hero /> },
+    { id: "about-section", component: <About /> },
     { id: "menu-section", component: <ServicesMenu /> },
     // { id: "contact-section", component: <Contact /> },
   ];
