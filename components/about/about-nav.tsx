@@ -28,8 +28,8 @@ const sections = {
   experience: {
     title: "Experience",
     content: (
-      <div className="space-y-6 text-white/90">
-        <p>Experience tab</p>
+      <div className="space-y-6 text-red-400">
+        <p>Under construction</p>
       </div>
     ),
   },
