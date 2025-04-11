@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import ThemeToggle from "@/components/theme/theme-toggle";
+// import ThemeToggle from "@/components/theme/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import GradientText from "@/components/gradient-text";

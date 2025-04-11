@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import AboutNav from "./about-nav";
 
-import SplashCursor from "../cursor/splash-cursor";
+// import SplashCursor from "../cursor/splash-cursor";
 
 export default function About() {
   const ref = useRef(null);
