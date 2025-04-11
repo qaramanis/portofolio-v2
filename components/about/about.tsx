@@ -46,7 +46,7 @@ export default function About() {
           About Me
         </motion.h1>
 
-        <motion.p
+        {/* <motion.p
           className="text-xl text-white/80 mb-12 hidden md:flex"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function About() {
         >
           I am an ambitious Computer Science student that constantly works to elevate his knowledge and skills,
           in order to adapt and conquer the tech trends
-        </motion.p>
+        </motion.p> */}
         <AboutNav />
       </motion.div>
     </div>

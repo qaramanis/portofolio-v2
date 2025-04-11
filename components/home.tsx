@@ -156,7 +156,7 @@ export default function Home() {
           ref={(el) => {
             sectionRefs.current[index] = el as HTMLDivElement;
           }}
-          className={`h-screen w-full flex items-center justify-center snap-start ${
+          className={`h-screen w-full flex items-center justify-center snap-start pt-4 ${
             section.allowInternalScroll ? "overflow-y-auto" : ""
           } ${index > 0 ? "-mt-1" : ""}`}
           id={section.id}

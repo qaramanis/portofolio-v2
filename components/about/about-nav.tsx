@@ -19,13 +19,8 @@ const sections = {
         </p>
         <Separator />
         <p>
-          My journey in tech started in high school when I was first discovered
-          an old Arduino uno my father had lying around 
-        </p>
-        <p>
-          I believe in continuous learning and challenging myself with new
-          technologies and methodologies to stay at the forefront of the rapidly
-          evolving tech landscape.
+          I am constantly trying to evolve my skills and knowledge to follow the
+          tech trends and contribute to the community.
         </p>
       </div>
     ),

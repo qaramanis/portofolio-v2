@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
       <div className="absolute inset-0 z-0">
         <Squares
-          speed={isMobile ? 0.2 : 0.4}
+          speed={isMobile ? 0.15 : 0.4}
           squareSize={30}
           direction="diagonal"
           borderColor="#034C53"
