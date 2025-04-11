@@ -51,7 +51,7 @@ const OsmoVerticalNavigation: React.FC = () => {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 pointer-events-none">
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 pointer-events-none hidden md:flex">
       <ul className="flex flex-col justify-center items-end gap-0 m-0 p-0 md:text-2xl text-lg">
         {navItems.map((item, index) => (
           <li

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GooeyNav from "../gooey-nav";
+import { Separator } from "@/components/ui/separator";
 
 const sections = {
   bio: {
@@ -8,14 +9,18 @@ const sections = {
     content: (
       <div className="space-y-6 text-white/90">
         <p>
-          I&apos;m a Computer Science student at the University of Macedonia,
-          passionate about web development, data analytics, and creating
-          intuitive digital experiences.
+          I&apos;m an ambitious Computer Science soon-to-be graduate from
+          University of Macedonia, in Thessaloniki, Greece
         </p>
+        <Separator />
         <p>
-          My journey in tech started with learning the fundamentals of
-          programming and quickly evolved into exploring modern frameworks and
-          technologies that power today&apos;s web applications.
+          Passionate about web development, data analytics, project management,
+          and creating intuitive digital experiences.
+        </p>
+        <Separator />
+        <p>
+          My journey in tech started in high school when I was first discovered
+          an old Arduino uno my father had lying around 
         </p>
         <p>
           I believe in continuous learning and challenging myself with new
@@ -55,7 +60,7 @@ export default function AboutNav() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className="flex flex-col items-center">
-        <div className="mb-12">
+        <div className="my-2 ">
           <GooeyNav
             items={items}
             animationTime={500}

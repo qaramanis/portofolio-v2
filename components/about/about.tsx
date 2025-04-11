@@ -15,7 +15,7 @@ export default function About() {
       ref={ref}
       className="w-full h-full relative flex flex-col items-center overflow-hidden"
     >
-      <SplashCursor
+      {/* <SplashCursor
         SIM_RESOLUTION={512}
         DYE_RESOLUTION={1024}
         DENSITY_DISSIPATION={5}
@@ -29,7 +29,7 @@ export default function About() {
         COLOR_UPDATE_SPEED={2}
         BACK_COLOR={{ r: 0.05, g: 0.05, b: 0.05 }}
         TRANSPARENT={true}
-      />
+      /> */}
 
       <motion.div
         className="w-full max-w-4xl text-center z-10 pt-16 px-8"
@@ -47,42 +47,16 @@ export default function About() {
         </motion.h1>
 
         <motion.p
-          className="text-xl text-white/80 mb-12"
+          className="text-xl text-white/80 mb-12 hidden md:flex"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          A Computer Science student trying to elevate his knowledge and skills,
+          I am an ambitious Computer Science student that constantly works to elevate his knowledge and skills,
           in order to adapt and conquer the tech trends
         </motion.p>
-
         <AboutNav />
       </motion.div>
     </div>
   );
-}
-
-{
-  /* <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ x: "100%", opacity: 0 }}
-        whileInView={{ x: 0, opacity: 0.75 }}
-        viewport={{ once: false }}
-        transition={{
-          type: "spring",
-          stiffness: 50,
-          damping: 30,
-          delay: 0.75,
-          duration: 0.8,
-        }}
-      >
-      <div className="absolute inset-0 z-0">
-        <Threads
-          color={[3, 76, 83]}
-          amplitude={0.4}
-          distance={0.1}
-          enableMouseInteraction={false}
-        />
-      </div>
-      </motion.div> */
 }

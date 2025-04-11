@@ -13,7 +13,7 @@ export default function CopyrightWatermark({
   subtext = "All Rights Reserved",
 }: CopyrightWatermarkProps) {
   return (
-    <div className="fixed bottom-4 left-4 z-10 text-xs text-white/30 font-mono pointer-events-none select-none">
+    <div className="fixed bottom-4 left-4 z-10 text-xs text-white/30 font-mono pointer-events-none select-none hidden md:flex">
       <div>
         {text} {year}
       </div>
