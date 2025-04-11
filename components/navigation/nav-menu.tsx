@@ -17,7 +17,7 @@ const navItems = [
   { label: "Home", href: "#hero-section" },
   { label: "About", href: "#about-section" },
   { label: "Services", href: "#menu-section" },
-  { label: "Contact", href: "#contact-section" },
+  // { label: "Contact", href: "#contact-section" },
 ];
 
 export default function NavMenu() {
