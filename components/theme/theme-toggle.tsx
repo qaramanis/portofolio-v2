@@ -17,14 +17,14 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
     <motion.button
       onClick={toggleTheme}
       className={`absolute top-4 right-4 z-50 rounded-full w-8 h-8 flex items-center justify-center focus:outline-none ${className}`}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
-        <Sun size={20} className="text-white" />
+        <Sun size={20} className="text-white/70" />
       ) : (
-        <Moon size={20} className="text-black" />
+        <Moon size={20} className="text-white/70" />
       )}
     </motion.button>
   );

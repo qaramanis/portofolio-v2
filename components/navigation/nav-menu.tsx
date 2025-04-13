@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-// import ThemeToggle from "@/components/theme/theme-toggle";
+import ThemeToggle from "@/components/theme/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import GradientText from "@/components/gradient-text";
@@ -24,7 +24,6 @@ export default function NavMenu() {
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Update active item based on scroll position
   useEffect(() => {
     const sectionIds = navItems.map((item) => item.href.substring(1));
 
@@ -117,20 +116,23 @@ export default function NavMenu() {
             </NavigationMenu>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="flex items-center justify-center gap-4 h-full">
-            <button
-              className="md:hidden text-white/70 hover:text-white p-1 flex items-center justify-center"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle mobile menu"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          <div className="flex items-center space-x-12">
+            <div className="hidden md:block">{/* <ThemeToggle /> */}</div>
+
+            <div className="md:hidden flex items-center space-x-12">
+              {/* <ThemeToggle /> */}
+              <button
+                className="text-white/70 hover:text-white p-1 flex items-center justify-center"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>
 
-      {/* Mobile Menu - Separate from the navigation bar */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

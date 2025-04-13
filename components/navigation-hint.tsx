@@ -18,15 +18,10 @@ export default function NavigationHint() {
 
   if (isMobile) {
     return (
-      <motion.div
-        className="flex flex-col items-center gap-2 text-[#333] hover:text-white absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 duration-500 select-none"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
+      <div className="flex flex-col items-center gap-2 text-[#333] hover:text-white absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 duration-500 select-none">
         <ArrowDown size={36} className="animate-bounce" />
         <p className="text-base font-mono">swipe down</p>
-      </motion.div>
+      </div>
     );
   }
 

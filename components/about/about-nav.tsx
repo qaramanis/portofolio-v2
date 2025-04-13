@@ -17,22 +17,18 @@ const sections = {
           Passionate about web development, data analytics, project management,
           and creating intuitive digital experiences.
         </p>
-        <Separator />
-        <p>
-          I am constantly trying to evolve my skills and knowledge to follow the
-          tech trends and contribute to the community.
-        </p>
+        {/* <Separator /> */}
       </div>
     ),
   },
-  experience: {
-    title: "Experience",
-    content: (
-      <div className="space-y-6 text-red-400">
-        <p>Under construction</p>
-      </div>
-    ),
-  },
+  // experience: {
+  //   title: "Experience",
+  //   content: (
+  //     <div className="space-y-6 text-red-400">
+  //       <p>Under construction</p>
+  //     </div>
+  //   ),
+  // },
 };
 
 type SectionKey = keyof typeof sections;
@@ -65,7 +61,6 @@ export default function AboutNav() {
             timeVariance={300}
             colors={[1, 2, 3, 1, 2, 3, 1, 4]}
             initialActiveIndex={initialActiveIndex}
-            onNavItemClick={handleSectionChange}
           />
         </div>
 
