@@ -29,7 +29,7 @@ const Squares: React.FC<SquaresProps> = ({
 
   const borderColor = "#213448";
   const hoverFillColor = "#222";
-  const bgGradientEnd = "#060606";
+  const bgGradientEnd = "#090909";
 
   useEffect(() => {
     const canvas = canvasRef.current;

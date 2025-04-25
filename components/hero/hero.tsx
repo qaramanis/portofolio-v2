@@ -42,8 +42,6 @@ export default function Hero() {
         >
           admire simplicity
         </motion.h2>
-
-        
       </div>
       <div className="absolute inset-0 z-0">
         <Squares
@@ -53,7 +51,6 @@ export default function Hero() {
         />
       </div>
 
-      <div className="absolute left-0 top-0 bottom-0 w-1/2 z-0 bg-gradient-to-r dark:from-black to-transparent  pointer-events-none" />
       <OsmoVerticalNavigation />
       <NavigationHint />
     </div>

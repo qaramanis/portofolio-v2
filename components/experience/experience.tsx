@@ -115,7 +115,7 @@ const ExperienceMenu: React.FC = () => {
             ${
               hoverIndex !== null
                 ? "md:bg-[size:100vmax] md:opacity-15"
-                : "md:bg-[size:110vmax] md:opacity-40"
+                : "md:bg-[size:115vmax] md:opacity-40"
             }
           `}
         ></div>
