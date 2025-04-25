@@ -24,7 +24,6 @@ const Squares: React.FC<SquaresProps> = ({
   hoverFillColor: propsHoverFillColor,
   ...rest
 }) => {
-  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number | null>(null);
   const numSquaresX = useRef<number>(0);
@@ -32,11 +31,9 @@ const Squares: React.FC<SquaresProps> = ({
   const gridOffset = useRef<GridOffset>({ x: 0, y: 0 });
   const hoveredSquareRef = useRef<GridOffset | null>(null);
 
-  const borderColor =
-    propsBorderColor || (theme === "dark" ? "#034C53" : "#B2BEB5");
-  const hoverFillColor =
-    propsHoverFillColor || (theme === "dark" ? "#222" : "#e0e0e0");
-  const bgGradientEnd = theme === "dark" ? "#060606" : "#f8f8f8";
+  const borderColor = (propsBorderColor = "#034C53");
+  const hoverFillColor = (propsHoverFillColor = "#222");
+  const bgGradientEnd = "#060606";
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -173,14 +170,13 @@ const Squares: React.FC<SquaresProps> = ({
     borderColor,
     hoverFillColor,
     squareSize,
-    theme,
     bgGradientEnd,
   ]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="w-full h-full border-none block bg-white dark:bg-black"
+      className="w-full h-full border-none block bg-black"
     ></canvas>
   );
 };

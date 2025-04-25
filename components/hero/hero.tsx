@@ -51,7 +51,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="absolute left-0 top-0 bottom-0 w-1/2 z-0 bg-gradient-to-r dark:from-black dark:to-transparent from-white to-transparent pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-1/2 z-0 bg-gradient-to-r dark:from-black to-transparent  pointer-events-none" />
       <OsmoVerticalNavigation />
       <NavigationHint />
     </div>

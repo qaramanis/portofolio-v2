@@ -14,7 +14,7 @@ export default function Page() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3, duration: 0.8 }}
     >
-      <PageLoader />
+      {/* <PageLoader /> */}
       <NavMenu />
       <Home />
       <CopyrightWatermark />
