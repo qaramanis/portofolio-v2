@@ -42,6 +42,8 @@ export default function Hero() {
         >
           admire simplicity
         </motion.h2>
+
+        
       </div>
       <div className="absolute inset-0 z-0">
         <Squares

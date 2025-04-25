@@ -1,6 +1,5 @@
 "use client";
 
-import PageLoader from "@/components/loader/page-loader";
 import { motion } from "framer-motion";
 import CopyrightWatermark from "@/components/copyright-watermark";
 import Home from "@/components/home";

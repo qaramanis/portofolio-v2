@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { useTheme } from "@/components/theme/theme-provider";
 
 type CanvasStrokeStyle = string | CanvasGradient | CanvasPattern;
 
@@ -19,10 +18,7 @@ interface SquaresProps {
 const Squares: React.FC<SquaresProps> = ({
   direction = "right",
   speed = 1,
-  borderColor: propsBorderColor,
   squareSize = 40,
-  hoverFillColor: propsHoverFillColor,
-  ...rest
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number | null>(null);
@@ -31,8 +27,8 @@ const Squares: React.FC<SquaresProps> = ({
   const gridOffset = useRef<GridOffset>({ x: 0, y: 0 });
   const hoveredSquareRef = useRef<GridOffset | null>(null);
 
-  const borderColor = (propsBorderColor = "#034C53");
-  const hoverFillColor = (propsHoverFillColor = "#222");
+  const borderColor = "#213448";
+  const hoverFillColor = "#222";
   const bgGradientEnd = "#060606";
 
   useEffect(() => {
@@ -176,7 +172,7 @@ const Squares: React.FC<SquaresProps> = ({
   return (
     <canvas
       ref={canvasRef}
-      className="w-full h-full border-none block bg-black"
+      className="w-full h-full border-none block bg-[#03001C]"
     ></canvas>
   );
 };

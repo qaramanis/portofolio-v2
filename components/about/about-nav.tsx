@@ -34,12 +34,12 @@ const sections = {
 type SectionKey = keyof typeof sections;
 
 export default function AboutNav() {
-  const [activeSection, setActiveSection] = useState<SectionKey>("bio");
+  const [activeSection /*setActiveSection*/] = useState<SectionKey>("bio");
 
-  const handleSectionChange = (index: number) => {
-    const sectionKeys = Object.keys(sections) as SectionKey[];
-    setActiveSection(sectionKeys[index]);
-  };
+  // const handleSectionChange = (index: number) => {
+  //   const sectionKeys = Object.keys(sections) as SectionKey[];
+  //   setActiveSection(sectionKeys[index]);
+  // };
 
   const items = Object.keys(sections).map((key) => ({
     label: sections[key as SectionKey].title,

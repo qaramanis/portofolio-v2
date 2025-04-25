@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Apostolos Karamanis | Digital Anthology",
-  description: "Crafting digital solutions",
+  title: "Apostolos Karamanis | Personal Portofolio",
+  description:
+    "My own personal protofolio, containing all the information one needs to know about me",
 };
 
 export default function RootLayout({

@@ -7,7 +7,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import ThemeToggle from "@/components/theme/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import GradientText from "@/components/gradient-text";
@@ -15,8 +14,8 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", href: "#hero-section" },
-  { label: "About Me", href: "#about-section" },
-  { label: "Services", href: "#menu-section" },
+  // { label: "About Me", href: "#about-section" },
+  { label: "Experience", href: "#experience-section" },
   // { label: "Contact", href: "#contact-section" },
 ];
 
@@ -115,12 +114,14 @@ export default function NavMenu() {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
+          <h2 className="absolute end-6 text-sm text-red-500/50 hidden md:block">
+            site is still under construction
+          </h2>
 
           <div className="flex items-center space-x-12">
             <div className="hidden md:block">{/* <ThemeToggle /> */}</div>
 
             <div className="md:hidden flex items-center space-x-12">
-              {/* <ThemeToggle /> */}
               <button
                 className="text-white/70 hover:text-white p-1 flex items-center justify-center"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -161,7 +162,9 @@ export default function NavMenu() {
                   {item.label}
                 </motion.button>
               ))}
-
+              <h2 className="absolute bottom-12 text-sm md:text-3xl text-red-500/50">
+                site is still under construction
+              </h2>
               <motion.div
                 className="absolute bottom-6 left-0 w-full text-center text-white/40 text-sm"
                 initial={{ opacity: 0 }}
