@@ -49,8 +49,9 @@ const ExperienceMenu: React.FC = () => {
       icon: <FileCode2 size={iconSize} />,
     },
   ];
-  const handleItemClick = (url: string) => {
-    router.push("#");
+  //original : url: string
+  const handleItemClick = (url = "#") => {
+    router.push(url);
   };
 
   return (
