@@ -27,7 +27,11 @@ const ExperienceMenu: React.FC = () => {
   const iconSize = isMobile ? 24 : 32;
 
   const menuItems = [
-    { name: "Web Design", url: "/web-design", icon: <Globe size={iconSize} /> },
+    {
+      name: "Web Development",
+      url: "/web-development",
+      icon: <Globe size={iconSize} />,
+    },
     {
       name: "Project Management",
       url: "/project-management",
