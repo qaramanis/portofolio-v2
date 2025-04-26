@@ -50,7 +50,7 @@ const ExperienceMenu: React.FC = () => {
     },
   ];
   const handleItemClick = (url: string) => {
-    router.push(url);
+    router.push("#");
   };
 
   return (
