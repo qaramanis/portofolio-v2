@@ -1,4 +1,4 @@
-# Apostolos Karamanis | Digital Anthology
+# Apostolos Karamanis | Personal Portofolio
 
 A modern, animated portfolio website built with Next.js, Framer Motion, and Tailwind CSS.
 
@@ -11,10 +11,7 @@ A modern, animated portfolio website built with Next.js, Framer Motion, and Tail
 - [Framer Motion](https://www.framer.com/motion/) - Animation library
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
 - [Lucide Icons](https://lucide.dev/) - SVG icon set
-- [React Hook Form](https://react-hook-form.com/) - Form handling
-- [Zod](https://zod.dev/) - Form validation
-- [Radix UI](https://www.radix-ui.com/) - Headless UI components
-
+  
 ## Getting Started
 
 ### Prerequisites
@@ -23,27 +20,10 @@ A modern, animated portfolio website built with Next.js, Framer Motion, and Tail
 - npm or yarn or pnpm
 
 
-## Project Structure
-
-```
-├── app/                  # Next.js app directory
-│   ├── globals.css       # Global styles
-│   ├── layout.tsx        # Root layout component
-│   └── page.tsx          # Home page component
-├── components/           # React components
-│   ├── services-menu/    # Interactive menu components
-│   ├── contact/          # Contact form components
-│   ├── hero/             # Hero section components
-│   ├── loader/           # Loading animation components
-│   ├── timeline/         # Timeline component
-│   └── ui/               # UI components
-├── lib/                  # Utility functions
-├── public/               # Static files
-└── ...                   # Config files
-```
 
 ## Deployment
 This project is deployed on [Vercel](https://portofolio-v2-tau.vercel.app/)
+and to my new [personal site](https://qaramanis.com/)
 Be sure to check it out
 
 ## License
