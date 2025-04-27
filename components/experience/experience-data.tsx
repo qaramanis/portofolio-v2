@@ -117,7 +117,7 @@ export const experienceData: ExperienceData = {
       {
         name: "E-commerce API",
         description:
-          "Backend service that allows communication between separate marketplace and e-shop platforms",
+          "Backend service that allows communication between marketplace and e-shop platforms",
       },
     ],
   },

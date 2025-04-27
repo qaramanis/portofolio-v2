@@ -1,11 +1,14 @@
+// ExperienceMenu.tsx
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Globe, Folders, Database, Smartphone, FileCode2 } from "lucide-react";
-import ExperienceDetailBox, { ExperienceDetail } from "./experience-details";
+import { ExperienceDetail } from "./experience-details";
 import { experienceData } from "./experience-data";
+import BackgroundImage from "./background-image";
+import MenuItem from "./menu-item";
 
 const ExperienceMenu: React.FC = () => {
   const router = useRouter();
@@ -101,61 +104,27 @@ const ExperienceMenu: React.FC = () => {
               }
               transition={{ delay: 0.1 * index, duration: 0.8 }}
             >
-              <div
-                className={`
-                menu-item text-white/80 cursor-pointer block
-                text-[clamp(1rem,6vw,3rem)] py-[clamp(0.25rem,0.5vw,1rem)] pr-0 pl-0 
-                no-underline transition-all duration-400 ease-in-out
-                ${
-                  hoverIndex !== null && hoverIndex !== index
-                    ? "opacity-20 scale-95"
-                    : "opacity-100 scale-100"
-                }
-                ${hoverIndex === index ? "text-white" : ""}
-              `}
+              <MenuItem
+                item={item}
+                index={index}
+                hoverIndex={hoverIndex}
+                iconSize={iconSize}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => handleItemClick(item.url)}
-              >
-                <div className="flex items-center md:my-0 my-5">
-                  <span className="mr-4 md:mr-8 text-[clamp(0.8rem,3vw,1.5rem)] opacity-70 ">
-                    {item.icon}
-                  </span>
-                  {item.name}
-                </div>
-              </div>
+              />
             </motion.div>
           ))}
         </div>
 
-        <AnimatePresence>
+        {/* <AnimatePresence>
           <ExperienceDetailBox
             isVisible={hoverIndex !== null}
             data={currentExperienceData}
           />
-        </AnimatePresence>
+        </AnimatePresence> */}
 
-        <div
-          id="menu-background-image"
-          className={`
-            bg-[url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop&ixlib')]
-            h-full w-full left-0 top-0 absolute
-            bg-center bg-cover opacity-30
-            transition-[opacity,background-size,background-position] duration-800 ease-in-out z-0
-            ${hoverIndex === 0 ? "md:bg-[position:center_30%]" : ""}
-            ${hoverIndex === 1 ? "md:bg-[position:center_40%]" : ""}
-            ${hoverIndex === 2 ? "md:bg-[position:center_50%]" : ""}
-            ${hoverIndex === 3 ? "md:bg-[position:center_60%]" : ""}
-            ${hoverIndex === 4 ? "md:bg-[position:center_70%]" : ""}
-            ${hoverIndex === 5 ? "md:bg-[position:center_80%]" : ""}
-            ${hoverIndex !== null ? "" : "bg-[position:center_55%]"}
-            ${
-              hoverIndex !== null
-                ? "md:bg-[size:100vmax] md:opacity-15"
-                : "md:bg-[size:115vmax] md:opacity-40"
-            }
-          `}
-        ></div>
+        <BackgroundImage hoverIndex={hoverIndex} />
       </div>
     </div>
   );

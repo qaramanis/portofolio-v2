@@ -26,7 +26,7 @@ export default function Hero() {
     >
       <div className="relative z-10 text-left p-8 ml-8">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-white mb-6 "
+          className="text-4xl md:text-5xl font-bold text-white mb-6"
           initial={{ opacity: 0, x: 150 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -150 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -48,7 +48,7 @@ export default function Hero() {
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 250 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Thessaloniki, Greece
+          in Thessaloniki, Greece
         </motion.h2>
       </div>
       <div className="absolute inset-0 z-0">
