@@ -2,14 +2,19 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Globe, Folders, Database, Smartphone, FileCode2 } from "lucide-react";
+import ExperienceDetailBox, { ExperienceDetail } from "./experience-details";
+import { experienceData } from "./experience-data";
 
 const ExperienceMenu: React.FC = () => {
   const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const ref = useRef(null);
+  const [currentExperienceData, setCurrentExperienceData] =
+    useState<ExperienceDetail | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, {
     once: false,
     amount: 0.1,
@@ -31,30 +36,48 @@ const ExperienceMenu: React.FC = () => {
       name: "Web Development",
       url: "/web-development",
       icon: <Globe size={iconSize} />,
+      dataKey: "webDevelopment",
     },
     {
       name: "Project Management",
       url: "/project-management",
       icon: <Folders size={iconSize} />,
+      dataKey: "projectManagement",
     },
     {
       name: "Data Analysis",
       url: "/data-analysis",
       icon: <Database size={iconSize} />,
+      dataKey: "dataAnalysis",
     },
     {
       name: "Android Applications",
       url: "/android-apps",
       icon: <Smartphone size={iconSize} />,
+      dataKey: "androidApps",
     },
     {
       name: "API Development",
       url: "/api-development",
       icon: <FileCode2 size={iconSize} />,
+      dataKey: "apiDevelopment",
     },
   ];
+
   const handleItemClick = (url: string) => {
     router.push(url);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoverIndex(index);
+
+    const dataKey = menuItems[index].dataKey as keyof typeof experienceData;
+    setCurrentExperienceData(experienceData[dataKey]);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverIndex(null);
+    setCurrentExperienceData(null);
   };
 
   return (
@@ -68,12 +91,15 @@ const ExperienceMenu: React.FC = () => {
           {menuItems.map((item, index) => (
             <motion.div
               key={index}
-              ref={ref}
+              ref={(el) => {
+                itemRefs.current[index] = el;
+                if (index === 0) ref.current = el;
+              }}
               initial={{ opacity: 0, x: -150 }}
               animate={
                 isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -150 }
               }
-              transition={{ delay: 0.1, duration: 0.8 }}
+              transition={{ delay: 0.1 * index, duration: 0.8 }}
             >
               <div
                 className={`
@@ -87,8 +113,8 @@ const ExperienceMenu: React.FC = () => {
                 }
                 ${hoverIndex === index ? "text-white" : ""}
               `}
-                onMouseOver={() => setHoverIndex(index)}
-                onMouseOut={() => setHoverIndex(null)}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
                 onClick={() => handleItemClick(item.url)}
               >
                 <div className="flex items-center md:my-0 my-5">
@@ -101,6 +127,13 @@ const ExperienceMenu: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        <AnimatePresence>
+          <ExperienceDetailBox
+            isVisible={hoverIndex !== null}
+            data={currentExperienceData}
+          />
+        </AnimatePresence>
 
         <div
           id="menu-background-image"
@@ -129,8 +162,3 @@ const ExperienceMenu: React.FC = () => {
 };
 
 export default ExperienceMenu;
-
-//https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2647&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-//https://images.unsplash.com/photo-1515630278258-407f66498911?q=80&w=2698&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-//https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-//https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
