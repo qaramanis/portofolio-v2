@@ -28,7 +28,7 @@ const Squares: React.FC<SquaresProps> = ({
   const hoveredSquareRef = useRef<GridOffset | null>(null);
 
   const borderColor = "#213448";
-  const hoverFillColor = "#222";
+  const hoverFillColor = "#070F2B";
   const bgGradientEnd = "#090909";
 
   useEffect(() => {
