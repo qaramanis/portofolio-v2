@@ -48,7 +48,7 @@ export default function Hero() {
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 250 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          in Thessaloniki, Greece
+          Thessaloniki, Greece
         </motion.h2>
       </div>
       <div className="absolute inset-0 z-0">
