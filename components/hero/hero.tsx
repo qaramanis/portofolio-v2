@@ -35,12 +35,20 @@ export default function Hero() {
         </motion.h1>
 
         <motion.h2
-          className="text-2xl md:text-3xl text-white/70"
+          className="text-lg md:text-3xl text-white/50"
           initial={{ opacity: 0, x: -250 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 250 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          admire simplicity
+          full stack developer
+        </motion.h2>
+        <motion.h2
+          className="text-lg md:text-3xl text-white/50"
+          initial={{ opacity: 0, x: -250 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 250 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          in Thessaloniki, Greece
         </motion.h2>
       </div>
       <div className="absolute inset-0 z-0">
