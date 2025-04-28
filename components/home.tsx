@@ -1,14 +1,8 @@
 "use client";
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Hero from "./hero/hero";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import ServicesMenu from "./experience/experience";
-
-type Section = {
-  id: string;
-  component: ReactNode;
-  allowInternalScroll?: boolean;
-};
 
 const sectionVariants: Variants = {
   hidden: (direction: number) => ({
@@ -43,12 +37,15 @@ const sectionVariants: Variants = {
 };
 
 export default function Home() {
-  const sections: Section[] = [
-    { id: "hero-section", component: <Hero /> },
-    // { id: "about-section", component: <About /> },
-    { id: "experience-section", component: <ServicesMenu /> },
-    // { id: "contact-section", component: <Contact /> },
-  ];
+  const sections = useMemo(
+    () => [
+      { id: "hero-section", component: <Hero /> },
+      // { id: "about-section", component: <About /> },
+      { id: "experience-section", component: <ServicesMenu /> },
+      // { id: "contact-section", component: <Contact /> },
+    ],
+    []
+  );
 
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>(
@@ -62,7 +59,7 @@ export default function Home() {
       const currentSection = sectionRefs.current[currentSectionIndex];
       const currentSectionConfig = sections[currentSectionIndex];
 
-      if (currentSectionConfig.allowInternalScroll && currentSection) {
+      if (currentSectionConfig && currentSection) {
         const isAtTop = currentSection.scrollTop <= 0;
         const isAtBottom =
           currentSection.scrollHeight - currentSection.scrollTop <=
@@ -156,7 +153,7 @@ export default function Home() {
             sectionRefs.current[index] = el as HTMLDivElement;
           }}
           className={`h-screen w-full flex items-center justify-center snap-start pt-4 ${
-            section.allowInternalScroll ? "overflow-y-auto" : ""
+            section ? "overflow-y-auto" : ""
           } ${index > 0 ? "-mt-1" : ""}`}
           id={section.id}
         >

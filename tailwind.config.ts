@@ -14,6 +14,9 @@ const config: Config = {
         "dot-move": "dot-move 1s cubic-bezier(0.65,0,0.35,1) infinite",
         "scene-move": "scene-move 1s linear infinite",
         gradient: "gradient 8s linear infinite",
+        "star-movement-bottom":
+          "star-movement-bottom linear infinite alternate",
+        "star-movement-top": "star-movement-top linear infinite alternate",
       },
       keyframes: {
         scroll: {
@@ -37,6 +40,14 @@ const config: Config = {
           "0%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
+        },
+        "star-movement-bottom": {
+          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
+          "100%": { transform: "translate(-100%, 0%)", opacity: "0" },
+        },
+        "star-movement-top": {
+          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
+          "100%": { transform: "translate(100%, 0%)", opacity: "0" },
         },
       },
       backgroundImage: {

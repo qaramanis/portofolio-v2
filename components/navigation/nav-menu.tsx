@@ -83,6 +83,7 @@ export default function NavMenu() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
         <div className="container mx-auto flex justify-between items-center h-16 px-4">
           <div className="flex items-center">

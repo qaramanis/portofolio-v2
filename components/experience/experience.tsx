@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { Globe, Folders, Database, Smartphone, FileCode2 } from "lucide-react";
 import { ExperienceDetail } from "./experience-details";
-import { experienceData } from "./experience-data";
 import BackgroundImage from "./background-image";
 import MenuItem from "./menu-item";
 
@@ -14,8 +13,7 @@ const ExperienceMenu: React.FC = () => {
   const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [currentExperienceData, setCurrentExperienceData] =
-    useState<ExperienceDetail | null>(null);
+  useState<ExperienceDetail | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, {
@@ -73,14 +71,10 @@ const ExperienceMenu: React.FC = () => {
 
   const handleMouseEnter = (index: number) => {
     setHoverIndex(index);
-
-    const dataKey = menuItems[index].dataKey as keyof typeof experienceData;
-    setCurrentExperienceData(experienceData[dataKey]);
   };
 
   const handleMouseLeave = () => {
     setHoverIndex(null);
-    setCurrentExperienceData(null);
   };
 
   return (

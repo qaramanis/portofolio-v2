@@ -11,7 +11,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ hoverIndex }) => {
       className={`
         bg-[url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop&ixlib')]
         h-full w-full left-0 top-0 absolute
-        bg-center bg-cover opacity-30
+        bg-center bg-cover opacity-20
         transition-[opacity,background-size,background-position] duration-800 ease-in-out z-0
         ${hoverIndex === 0 ? "md:bg-[position:center_30%]" : ""}
         ${hoverIndex === 1 ? "md:bg-[position:center_40%]" : ""}
