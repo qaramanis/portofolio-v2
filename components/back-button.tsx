@@ -7,10 +7,10 @@ export default function BackButton() {
     <Link href="/">
       <Button
         variant="default"
-        className="bg-transparent group hover:bg-gray-500/50 rounded-2xl"
+        className="bg-transparent group text-white hover:bg-gray-500/50 rounded-2xl"
       >
         <ChevronLeft
-          className="mr-2 transition-transform group-hover:-translate-x-1"
+          className="mr-2 transition-transform group-hover:-translate-x-1 text-white"
           size={18}
         />
         Back to main page
