@@ -59,7 +59,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             )}
             <Button
               size="sm"
-              variant="ghost"
+              variant="default"
               className="bg-transparent text-white hover:text-white hover:bg-transparent"
             >
               <Activity size={16} className="mr-1" />
