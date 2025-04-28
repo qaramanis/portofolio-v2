@@ -41,20 +41,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
           <div className="flex gap-2">
-            <Link
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="sm"
-                variant="default"
-                className="bg-black/70 hover:bg-black/50 cursor-pointer text-white hover:text-white"
+            {project.github !== "" && (
+              <Link
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Github size={16} className="mr-1" />
-                Source
-              </Button>
-            </Link>
+                <Button
+                  size="sm"
+                  variant="default"
+                  className="bg-black/70 hover:bg-black/50 cursor-pointer text-white hover:text-white"
+                >
+                  <Github size={16} className="mr-1" />
+                  Source
+                </Button>
+              </Link>
+            )}
             <Button
               size="sm"
               variant="ghost"
