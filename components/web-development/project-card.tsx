@@ -29,8 +29,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm border h-96 border-white/10 rounded-xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
-      <div className="relative h-64 overflow-hidden">
+    <div className="bg-white/5 backdrop-blur-sm border h-auto border-white/10 rounded-xl overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
+      <div className="relative h-72 overflow-hidden">
         <Image
           src={project.image}
           alt={project.title}
