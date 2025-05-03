@@ -7,6 +7,8 @@ import BackgroundImage from "@/components/experience/background-image";
 import BackButton from "@/components/back-button";
 import WebDevSkills from "@/components/web-development/skills";
 import WebDevProjects from "@/components/web-development/projects";
+import ProjectManagementSkills from "@/components/project-management/skills";
+import ProjectManagementProjects from "@/components/project-management/projects";
 
 export default function WebDevelopmentPage() {
   return (
@@ -18,9 +20,9 @@ export default function WebDevelopmentPage() {
           <Separator className="my-8 bg-white/20" />
           <WebDevOverview />
           <Separator className="my-8 bg-white/20" />
-          <WebDevSkills />
+          <ProjectManagementSkills />
           <Separator className="my-8 bg-white/20" />
-          <WebDevProjects />
+          <ProjectManagementProjects />
         </div>
 
         {/* <WebDevProjects />

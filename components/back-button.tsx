@@ -14,13 +14,13 @@ export default function BackButton() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 50 }}
+      initial={{ opacity: 0, x: 0 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.2 }}
     >
       <Button
         variant="default"
-        className="bg-transparent group text-white hover:bg-gray-500/50 rounded-2xl"
+        className="bg-transparent group text-white hover:bg-blue-400/50 hover:scale-105 rounded-2xl"
         onClick={handleNavigateBack}
       >
         <ChevronLeft
