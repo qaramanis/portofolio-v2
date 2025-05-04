@@ -40,8 +40,8 @@ export default function WebDevProjects() {
     >
       <h2 className="text-2xl md:text-3xl font-bold mb-4">Featured Projects</h2>
       <p className="text-white/70 mb-8 max-w-3xl">
-        "Through my academic career, I've cultivated proficiency with
-        Atlassian's suite of project management solutions, enabling me to
+        Through my academic career, I&apos;ve cultivated proficiency with
+        Atlassian&apos;s suite of project management solutions, enabling me to
         implement structured workflows that combine these technical tools with
         analytical thinking to deliver systematically organized and efficiently
         executed projects.

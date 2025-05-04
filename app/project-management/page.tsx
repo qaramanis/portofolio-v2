@@ -5,8 +5,6 @@ import { Separator } from "@/components/ui/separator";
 import WebDevOverview from "@/components/web-development/overview";
 import BackgroundImage from "@/components/experience/background-image";
 import BackButton from "@/components/back-button";
-import WebDevSkills from "@/components/web-development/skills";
-import WebDevProjects from "@/components/web-development/projects";
 import ProjectManagementSkills from "@/components/project-management/skills";
 import ProjectManagementProjects from "@/components/project-management/projects";
 

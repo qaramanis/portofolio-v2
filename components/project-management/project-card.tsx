@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, Activity } from "lucide-react";
+import { Activity } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
