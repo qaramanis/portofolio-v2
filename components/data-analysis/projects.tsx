@@ -16,18 +16,28 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "S/4HANA Planning",
+    title: "MOOC 2023 Course",
     description:
-      "Designed and performed a fully integrated order-to-cash cycle using SAP's S/4HANA ERP",
-    technologies: ["SAP", "ERP"],
+      "Completed the whole MOOC 2023 Python course. A course developed by the University of Helsinki, covering material from introductory to advanced levels.",
+    technologies: ["Python"],
     image:
-      "https://cdn.brandfetch.io/idQXbkxScC/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+      "https://programming-23.mooc.fi/static/banner-84ef18e01729a6202c2c9b3c8ef46a38.svg",
+    tag: "Course",
+    link: "",
+  },
+  {
+    title: "Machine Learning - Classification",
+    description:
+      "Air Quality Prediction from environmental and demographic factors using Machine Learning Classification",
+    technologies: ["Python"],
+    image:
+      "https://images.unsplash.com/photo-1649881927251-46644283751a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tag: "University Project",
-    link: "/",
+    link: "https://drive.google.com/file/d/1DPnBAkxj0OcCaltYJ7YUYXHLdo-TxxDN/view?usp=sharing",
   },
 ];
 
-export default function WebDevProjects() {
+export default function DataAnalysisProjects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.05 });
 
@@ -40,13 +50,7 @@ export default function WebDevProjects() {
       className="my-16"
     >
       <h2 className="text-2xl md:text-3xl font-bold mb-4">Featured Projects</h2>
-      <p className="text-white/70 mb-8 max-w-3xl">
-        Through my academic career, I&apos;ve cultivated proficiency with
-        Atlassian&apos;s suite of project management solutions, enabling me to
-        implement structured workflows that combine these technical tools with
-        analytical thinking to deliver systematically organized and efficiently
-        executed projects.
-      </p>
+      <p className="text-white/70 mb-8 max-w-3xl">TODO: Add description</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (

@@ -14,22 +14,22 @@ const skills: Skill[] = [
   {
     name: "React",
     description: "JavaScript Library",
-    icon: "/icons/react.svg",
+    icon: "https://cdn.brandfetch.io/idREYlLkpD/theme/dark/id-H4pLvmU.svg?c=1dxbfHSJFAPEGdCLU4o5B",
   },
   {
     name: "Next.js",
     description: "React framework",
-    icon: "/icons/nextjs.svg",
+    icon: "https://cdn.brandfetch.io/id2alue-rx/theme/dark/idqNI71Hra.svg?c=1dxbfHSJFAPEGdCLU4o5B",
   },
   {
     name: "TypeScript",
     description: "JavaScript but better",
-    icon: "/icons/typescript.svg",
+    icon: "https://cdn.brandfetch.io/idKX_Hb7va/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
   },
   {
     name: "Tailwind",
     description: "CSS framework",
-    icon: "/icons/tailwind.svg",
+    icon: "https://cdn.brandfetch.io/idMNEQh7-0/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
   },
   {
     name: "Git",
@@ -39,12 +39,12 @@ const skills: Skill[] = [
   {
     name: "Figma",
     description: "Design Tool",
-    icon: "/icons/figma.svg",
+    icon: "https://cdn.brandfetch.io/idZHcZ_i7F/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
   },
   {
     name: "Supabase",
     description: "Database manager",
-    icon: "/icons/supabase.svg",
+    icon: "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
   },
   {
     name: "Node.js",

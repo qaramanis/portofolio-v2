@@ -4,9 +4,9 @@ import React from "react";
 import { Separator } from "@/components/ui/separator";
 import BackgroundImage from "@/components/experience/background-image";
 import BackButton from "@/components/back-button";
-import ProjectManagementSkills from "@/components/project-management/skills";
-import ProjectManagementProjects from "@/components/project-management/projects";
-import ProjectManagementOverview from "@/components/project-management/overview";
+import DataAnalysisOverview from "@/components/data-analysis/overview";
+import DataAnalysisSkills from "@/components/data-analysis/skills";
+import DataAnalysisProjects from "@/components/data-analysis/projects";
 
 export default function WebDevelopmentPage() {
   return (
@@ -16,11 +16,11 @@ export default function WebDevelopmentPage() {
         <div className="mb-16">
           <BackButton />
           <Separator className="my-8 bg-white/20" />
-          <ProjectManagementOverview />
+          <DataAnalysisOverview />
           <Separator className="my-8 bg-white/20" />
-          <ProjectManagementSkills />
+          <DataAnalysisSkills />
           <Separator className="my-8 bg-white/20" />
-          <ProjectManagementProjects />
+          <DataAnalysisProjects />
         </div>
 
         {/* <WebDevProjects />

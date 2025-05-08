@@ -12,23 +12,28 @@ interface Skill {
 
 const skills: Skill[] = [
   {
-    name: "Jira",
-    description: "Project Tracking",
-    icon: "/icons/jira.svg",
+    name: "Python",
+    description: "You know what python is",
+    icon: "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg",
   },
   {
-    name: "SAP",
-    description: "Resource Planning",
-    icon: "https://cdn.brandfetch.io/idQXbkxScC/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+    name: "Apache Spark",
+    description: "Large Scale analytics",
+    icon: "https://spark.apache.org/images/spark-logo-rev.svg",
   },
   {
-    name: "KanBan",
-    description: "Agile Dev Framework",
-    icon: "/icons/kanban.svg",
+    name: "Hadoop",
+    description: "Distributed processing framework",
+    icon: "https://cdn.worldvectorlogo.com/logos/hadoop.svg",
+  },
+  {
+    name: "Tableau",
+    description: "Visualization tool",
+    icon: "https://cdn.brandfetch.io/id9sYMA_Im/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
   },
 ];
 
-export default function ProjectManagementSkills() {
+export default function DataAnalysisSkills() {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -39,11 +44,7 @@ export default function ProjectManagementSkills() {
       <h2 className="text-2xl md:text-3xl font-bold mb-4">
         Current technologies
       </h2>
-      <p className="text-white/70 mb-8 max-w-3xl">
-        I leverage agile project management methodologies through Jira and
-        Kanban frameworks to streamline workflows, prioritize tasks effectively,
-        and ensure transparent progress tracking across cross-functional teams.
-      </p>
+      <p className="text-white/70 mb-8 max-w-3xl">TODO: Add technologies</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {skills.map((skill, index) => (
